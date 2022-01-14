@@ -14,7 +14,7 @@ RUN bitnami-pkg install tini-0.19.0-1 --checksum 9b1f1c095944bac88a62c1b63f3bff1
 RUN bitnami-pkg install gosu-1.14.0-0 --checksum 3e6fc37ca073b10a73a804d39c2f0c028947a1a596382a4f8ebe43dfbaa3a25e
 RUN bitnami-pkg install codeigniter-3.1.11-4 --checksum 992301b583eead8727e33668d1b39c70894d8733a47f68ba441bfb4af666ed55
 
-COPY rootfs /
+COPY --chmod=755 rootfs /
 
 EXPOSE 8080
 
