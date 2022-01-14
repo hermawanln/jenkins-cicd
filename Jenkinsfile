@@ -6,7 +6,7 @@ pipeline {
         REGISTRY = '192.168.1.100:5000/apps/jenkins-ci'
     }
     agent {
-        kubernetes {
+        none {
             defaultContainer 'jnlp'
             yamlFile 'build.yaml'
         }
