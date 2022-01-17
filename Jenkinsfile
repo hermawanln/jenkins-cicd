@@ -2,7 +2,7 @@ pipeline {
     environment {
         DEPLOY = "${env.BRANCH_NAME == "master" || env.BRANCH_NAME == "develop" ? "true" : "false"}"
         NAME = "jenkins-cicd"
-        VERSION = '8'
+        VERSION = '9'
         REGISTRY = '192.168.1.100:5000/apps/jenkins-ci'
     }
     agent {
