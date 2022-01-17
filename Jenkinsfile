@@ -12,13 +12,13 @@ pipeline {
         }
     }
     stages {
-        stage('Build') {
-            steps {
-                container('jenkins-cicd') {
-                    // sh 'mvn package'
-                }
-            }
-        }
+        // stage('Build') {
+        //     steps {
+        //         container('jenkins-cicd') {
+        //             // sh 'mvn package'
+        //         }
+        //     }
+        // }
         stage('Docker Build') {
             when {
                 environment name: 'DEPLOY', value: 'true'
