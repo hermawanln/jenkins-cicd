@@ -10,7 +10,7 @@ job('jenkins-cicd-deploy') {
     }
     steps {
         dockerBuildAndPublish {
-            repositoryName('hermawanln/jenkins-cicd')
+            repositoryName('apps/jenkins-test')
             tag('${BUILD_TIMESTAMP}-${GIT_REVISION,length=7}') //unique id dari git yang digunakan untuk auto generate SHA 
             // registryCredentials('dockerhub')
             // dockerHostURI('unix:///var/run/docker.sock') // Specifies the URI to the Docker host.
