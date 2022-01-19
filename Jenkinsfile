@@ -6,7 +6,7 @@ node {
         REGISTRY = '192.168.1.100:5000/apps/jenkins-ci'
     }
     agent {
-        any {
+        docker {
             defaultContainer 'jnlp'
             yamlFile 'build.yaml'
         }
