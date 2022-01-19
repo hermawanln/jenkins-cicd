@@ -2,7 +2,7 @@ pipeline {
     environment {
         DEPLOY = "${env.BRANCH_NAME == "master" || env.BRANCH_NAME == "develop" ? "true" : "false"}"
         NAME = "jenkins-cicd"
-        VERSION = '9'
+        VERSION = '${GIT_REVISION,length=9}'
         REGISTRY = '192.168.1.100:5000/apps/jenkins-ci'
     }
     agent {
@@ -13,9 +13,6 @@ pipeline {
     }
     stages {
         stage('Docker Build') {
-            when {
-                environment name: 'DEPLOY', value: 'true'
-            }
             steps {
                 container('docker') {
                     sh "docker build -t ${REGISTRY}:${VERSION} ."
@@ -23,9 +20,6 @@ pipeline {
             }
         }
         stage('Docker Publish') {
-            when {
-                environment name: 'DEPLOY', value: 'true'
-            }
             steps {
                 container('docker') {
                     sh "docker push ${REGISTRY}:${VERSION}"
@@ -33,9 +27,6 @@ pipeline {
             }
         }
         stage('Kubernetes Deploy') {
-            when {
-                environment name: 'DEPLOY', value: 'true'
-            }
             steps {
                 container('helm') {
                     sh "helm upgrade --install --force --set name=${NAME} --set image.tag=${VERSION} ${NAME} ./jenkins-cicd"
