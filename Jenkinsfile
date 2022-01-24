@@ -1,10 +1,5 @@
 pipeline {
     agent any
-    environment {
-        // NAME = "jenkins-cicd"
-        // VERSION = '${GIT_REVISION,length=9}'
-        // REGISTRY = '192.168.1.100:5000/apps/njajal_pipeline'
-    }
     stages {
         stage('Docker Build') {
             steps {
