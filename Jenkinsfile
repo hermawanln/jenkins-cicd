@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Kubernetes Deploy') {
             steps {
-                sh "helm upgrade --install --force --set name=hahahihi --set image.tag=1 hahahihi ./jenkins-cicd"
+                sh "helm install njajal ./jenkins-cicd"
             }
         }
     }
