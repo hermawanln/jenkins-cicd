@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Kubernetes Deploy') {
             steps {
-                sh "helm install njajal ./jenkins-cicd"
+                sh "helm install njajal /home/ubuntu/jenkins-cicd"
             }
         }
     }
