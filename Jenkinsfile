@@ -15,7 +15,7 @@ pipeline {
             steps {
                 sh "helm repo add airflow-stable https://airflow-helm.github.io/charts"
                 sh "helm repo update"
-                sh "helm install airflow airflow-stable/airflow"
+                sh "helm install airflow airflow-stable/airflow -n jenkins"
             }
         }
     }
